@@ -6,6 +6,12 @@ const devonbdemoAPI = axios.create({
 function api_v1_login_create(payload) {
   return devonbdemoAPI.post(`/api/v1/login/`, payload.data)
 }
+function api_v1_recipe_list(payload) {
+  return devonbdemoAPI.get(`/api/v1/recipe/`)
+}
+function api_v1_recipe_create(payload) {
+  return devonbdemoAPI.post(`/api/v1/recipe/`, payload.data)
+}
 function api_v1_signup_create(payload) {
   return devonbdemoAPI.post(`/api/v1/signup/`, payload.data)
 }
@@ -32,6 +38,18 @@ function rest_auth_logout_retrieve(payload) {
 function rest_auth_logout_create(payload) {
   return devonbdemoAPI.post(`/rest-auth/logout/`)
 }
+function api_v1_recipe_retrieve(payload) {
+  return devonbdemoAPI.get(`/api/v1/recipe/${payload.id}/`)
+}
+function api_v1_recipe_update(payload) {
+  return devonbdemoAPI.put(`/api/v1/recipe/${payload.id}/`, payload.data)
+}
+function api_v1_recipe_partial_update(payload) {
+  return devonbdemoAPI.patch(`/api/v1/recipe/${payload.id}/`, payload.data)
+}
+function api_v1_recipe_destroy(payload) {
+  return devonbdemoAPI.delete(`/api/v1/recipe/${payload.id}/`)
+}
 function rest_auth_registration_create(payload) {
   return devonbdemoAPI.post(`/rest-auth/registration/`, payload.data)
 }
@@ -52,6 +70,8 @@ function rest_auth_registration_verify_email_create(payload) {
 }
 export const apiService = {
   api_v1_login_create,
+  api_v1_recipe_list,
+  api_v1_recipe_create,
   api_v1_signup_create,
   rest_auth_user_retrieve,
   rest_auth_user_update,
@@ -60,6 +80,10 @@ export const apiService = {
   rest_auth_login_create,
   rest_auth_logout_retrieve,
   rest_auth_logout_create,
+  api_v1_recipe_retrieve,
+  api_v1_recipe_update,
+  api_v1_recipe_partial_update,
+  api_v1_recipe_destroy,
   rest_auth_registration_create,
   rest_auth_password_reset_create,
   rest_auth_password_change_create,
