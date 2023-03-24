@@ -7,4 +7,4 @@ class Recipe(models.Model):
     prep_time = models.IntegerField(null=True,blank=True,)
     cook_time = models.IntegerField(null=True,blank=True,)
     chef = models.ForeignKey("users.User",null=True,blank=True,on_delete=models.CASCADE,related_name="recipe_chef",)
-    created_at = models.DateTimeField(null=True,blank=True,)
+    created_at = models.DateTimeField(auto_now_add=True,null=True,blank=True,)
